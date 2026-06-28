@@ -1,3 +1,29 @@
-*{
+* {
     font-family: Roboto;
+}
+
+header {
+    background-color: #1F2937;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+header .title {
+    color: #f9faf8;
+    font-size: 48px;
+    font-weight: 900;
+    margin-left: 1rem;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 1rem;
+}
+
+header nav a:hover {
+    color: #d1d5db;
 }
