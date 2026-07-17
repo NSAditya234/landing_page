@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+    <style>
+        button{
+            border: none;
+            width: 6rem;
+            padding: 5px;
+            /* Gen Z style vibrant gradient */
+            background: linear-gradient(135deg, #ff6ec7 0%, #7a5cff 40%, #59f0c6 75%);
+            color: #0f1724;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(122,92,255,0.28), 0 2px 6px rgba(0,0,0,0.12);
+            
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+    * 3 buttons each will show one of the word
+    * a head tag will show one of the these three word
+    * once a button click head tag will show any one of the word and a h2 tag will show You win or Lose....
+    -->
+    <h1>play with computer : <span id="SPSC"></span></h1>
+    <h2></h2>
+    <button>Stone</button>
+    <button>Paper</button>
+    <button>Scissors</button>
+
+    <script>
+        const button = document.querySelectorAll("button");
+        let SPSH;
+        const SPSC = ["Stone", "Paper", "Scissors"];
+
+        button.forEach(btn => {
+            btn.addEventListener("click", () => {
+                SPSH = btn.innerText;
+
+                const randomSPSC = SPSC[Math.floor(Math.random() * SPSC.length)];
+                document.getElementById("SPSC").innerText = randomSPSC;
+
+                const resultEl = document.querySelector("h2");
+
+                if (SPSH === randomSPSC) {
+                    resultEl.innerText = "Draw";
+                    resultEl.style.color = "Blue";
+                    return;
+                }
+
+                // Determine win/lose: Stone beats Scissors, Scissors beats Paper, Paper beats Stone
+                const winsAgainst = {
+                    "Stone": "Scissors",
+                    "Scissors": "Paper",
+                    "Paper": "Stone"
+                };
+
+                if (winsAgainst[SPSH] === randomSPSC) {
+                    resultEl.innerText = "You win";
+                    resultEl.style.color = "Green";
+                } else {
+                    resultEl.innerText = "You lose";
+                    resultEl.style.color = "Red";
+                }
+            });
+        });
+        
+    </script>
+</body>
+</html>
